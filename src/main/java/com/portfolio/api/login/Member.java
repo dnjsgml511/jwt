@@ -11,23 +11,26 @@ import javax.persistence.*;
 @Getter
 @ToString
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Table(name = "webuser")
 public class Member {
-	 @Id
-	    @GeneratedValue(strategy = GenerationType.AUTO)
-	    @Column(name = "member_id")
-	    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long idx;
 
-	    @Column(unique = true)
-	    private String email;
-	    private String password;
+	private String id;
+	private String email;
+	private String password;
+	private String usertype;
 
-	    public Member(String email, String password) {
-	        this.email = email;
-	        this.password = password;
-	    }
+	public Member(String id, String email, String password, String usertype) {
+		this.id = id;
+		this.email = email;
+		this.password = password;
+		this.usertype = usertype;
+	}
 
-	    public static Member createMember(String email, String password) {
-	        return new Member(email,password);
-	    }
+	public static Member createMember(String id, String email, String password, String usertype) {
+		return new Member(id, email, password, usertype);
+	}
 
 }

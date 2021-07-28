@@ -32,6 +32,7 @@ public class LoginController {
 
 	@PostMapping("/authenticate")
 	public ResponseEntity<?> createAuthenticationToken(@RequestBody JwtRequest authenticationRequest) throws Exception {
+		System.out.println("createAuthenticationToken");
 		final Member member = userDetailService.authenticateByEmailAndPassword(authenticationRequest.getEmail(),
 				authenticationRequest.getPassword());
 		final String token = jwtTokenUtil.generateToken(member.getEmail());
@@ -40,7 +41,8 @@ public class LoginController {
 
 	@PostMapping("/api/member")
 	public String saveMember(@RequestBody MemberDto memberDto) {
-		memberRepository.save(Member.createMember(memberDto.getEmail(), encode.encode(memberDto.getPassword())));
+		System.out.println("saveMember");
+		memberRepository.save(Member.createMember(memberDto.getId(), memberDto.getEmail(), encode.encode(memberDto.getPassword()), memberDto.getUsertype()));
 		return "success";
 	}
 
@@ -64,6 +66,8 @@ class JwtResponse {
 
 @Data
 class MemberDto {
+	private String id;
 	private String email;
 	private String password;
+	private String usertype;
 }
