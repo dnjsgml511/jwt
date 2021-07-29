@@ -1,4 +1,4 @@
-package com.portfolio.api.config;
+package com.portfolio.api.config.jwt;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;

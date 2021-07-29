@@ -1,4 +1,4 @@
-package com.portfolio.api.login;
+package com.portfolio.api.entity.excel;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @ToString
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @Table(name = "webuser")
 public class Member {
 	@Id
@@ -22,15 +22,14 @@ public class Member {
 	private String password;
 	private String usertype;
 
-	public Member(String id, String email, String password, String usertype) {
+	public Member(String id, String password, String usertype) {
 		this.id = id;
-		this.email = email;
 		this.password = password;
 		this.usertype = usertype;
 	}
 
-	public static Member createMember(String id, String email, String password, String usertype) {
-		return new Member(id, email, password, usertype);
+	public static Member createMember(String id, String password, String usertype) {
+		return new Member(id, password, usertype);
 	}
 
 }

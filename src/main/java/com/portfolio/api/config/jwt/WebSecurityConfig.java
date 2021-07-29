@@ -1,4 +1,4 @@
-package com.portfolio.api.config;
+package com.portfolio.api.config.jwt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

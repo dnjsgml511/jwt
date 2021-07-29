@@ -1,4 +1,4 @@
-package com.portfolio.api.config;
+package com.portfolio.api.config.jwt;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;
